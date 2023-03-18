@@ -1,3 +1,5 @@
-export default function item(){
-    return 
+
+export default function Item(name, expiry_date){
+    this.name = name;
+    this.expiry_date = expiry_date;
 }
