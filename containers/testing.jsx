@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import {View, Text, Image, TextInput} from 'react-native';
 
-export default class Test extends Component{
-    render(){
+export default function Test() {
   return (
     <View>
       <Text>Some text</Text>
@@ -24,6 +23,6 @@ export default class Test extends Component{
         defaultValue="You can type in me"
       />
     </View>
-  );}
+  );
 };
 
