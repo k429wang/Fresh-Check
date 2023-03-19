@@ -5,11 +5,9 @@ import Test from './containers/testing.jsx';
 
 export default function App() {
   return ( 
-    <ScrollView>
-      <View style={{borderWidth: 20, borderColor: 'white', borderTopWidth: 50}}>
+      <ScrollView style={{borderWidth: 20, borderColor: 'white', borderTopWidth: 50}}>
         <Landing/>
         {/* <Test/> */}
-      </View>
-    </ScrollView>
+      </ScrollView>
   );
 }
