@@ -1,38 +1,38 @@
 const Client  = require('@veryfi/veryfi-sdk');
 
-const client_id = 'vrfTubyeTPYN55OWpUUkJxeghtzvJJck934nAj8';
-const client_secret = 'TbYF2HzpnTyvv6Uj0se12HOizuj4jANfarixMlE4Txo1zdKMvpTIKvIRr7dIjiUCP8O7lLmjEcZhjgkuIGRKw9zJ6YGEJHfJUHo7O46MZcWRXfCnnbaoDWvkLmEwD6HW';
-const username = 'a22fu';
-const api_key = 'f6e6a69f985f3af384eece34c92640ad';
+const Dotenv = require('dotenv-webpack');
+
+require('dotenv').config();
+
+const client_id = process.env.CLIENT_ID;
+const client_secret = process.env.CLIENT_SECRET;
+const username = process.env.USER;
+const api_key = process.env.API_KEY;
 var fs = require('fs');
 
 let my_client = new Client(client_id, client_secret, username, api_key);
+let itemarray = [];
 
+let filename = 'Receipt_17Mar2023_121343.pdf';
+
+//API call to get JSON data
 async function getDoc(){
-    return my_client.process_document('Receipt_17Mar2023_121343.pdf')
+    return my_client.process_document(filename);
 } 
 
 getDoc().then(
     function(value){
-        fs.writeFile("receipt.json", JSON.stringify(value, 1, 1), function(err) {
-            if (err) throw err;
-            console.log('complete');
-            }
-        )    
+        //puts 'shopping list' of strings into array
+        let jsonarray = value["line_items"];
+        for(let i = 0; i < jsonarray.length; i++){
+            itemarray.push(jsonarray[i].description);
+        }
+        for (let i = 0; i < itemarray.length; i++){
+            console.log(itemarray[i]);
+        }
     },
     function(error){
         console.log("bad")
     }
 )
 
-
-/*
-response().finally(
-
-    fs.writeFile ("receipt.json", , function(err) {
-        if (err) throw err;
-        console.log('complete');
-        }
-    )
-) 
-*/
