@@ -1,13 +1,25 @@
 import React from 'react';
-import { ScrollView , View} from 'react-native';
-import Landing from './containers/landing.jsx';
-import Test from './containers/testing.jsx';
+import Home from './containers/home.jsx';
+import Cam from './containers/cameraexample'
+import { NavigationContainer } from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 export default function App() {
+  const Stack = createNativeStackNavigator();
+
   return ( 
-      <ScrollView style={{borderWidth: 20, borderColor: 'white', borderTopWidth: 50}}>
-        <Landing/>
-        {/* <Test/> */}
-      </ScrollView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen 
+          name = "Home"
+          component = {Home}
+          />
+        <Stack.Screen 
+        name = "Camera"
+        component = {Cam}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
+
