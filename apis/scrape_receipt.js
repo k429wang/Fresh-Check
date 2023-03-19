@@ -8,10 +8,23 @@ var fs = require('fs');
 
 let my_client = new Client(client_id, client_secret, username, api_key);
 
+async function getDoc(){
+    return my_client.process_document('Receipt_17Mar2023_121343.pdf')
+} 
 
-const response = async() => await my_client.process_document('Receipt_17Mar2023_121343.pdf');
+getDoc().then(
+    function(value){
+        fs.writeFile("receipt.json", JSON.stringify(value, 1, 1), function(err) {
+            if (err) throw err;
+            console.log('complete');
+            }
+        )    
+    },
+    function(error){
+        console.log("bad")
+    }
+)
 
-response().then(console.log);
 
 /*
 response().finally(
