@@ -1,6 +1,6 @@
 # Fresh-Check ✅
 
-Created by Kai Wang, Alexander Fu, Keegan Liu, and Cindy Peng at Hack the Globe 2023
+Created by Kai Wang, Alexander Fu, Keegan Liu, and Cindy Peng at **Hack the Globe 2023**
 
 ## Inspiration
 
