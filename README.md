@@ -8,7 +8,7 @@ Canadians create 50 million tons of food waste per year. Not only could that foo
 
 ## What it does
 
-Fresh Check allows users to scan groceries receipt to directly input the food items, and our app helps keep track of the expiration date of all of their purchased food.
+Fresh Check allows users to scan groceries receipts to directly input the food items, and our app helps keep track of the expiration date of all of their purchased food.
 
 Everyday consumers will know exactly what foods they have purchased, exactly when it will go bad, and how to use it! ​
 
