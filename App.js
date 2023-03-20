@@ -13,10 +13,10 @@ export default function App() {
         <Stack.Screen 
           name = "Home"
           component = {Home}
-          />
+        />
         <Stack.Screen 
-        name = "Camera"
-        component = {Cam}
+          name = "Camera"
+          component = {Cam}
         />
       </Stack.Navigator>
     </NavigationContainer>

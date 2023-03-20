@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FlatList, Text, TextInput, ScrollView, View, Button, Alert} from 'react-native';
+import { FlatList, Text, TextInput, View, Button, Alert} from 'react-native';
 import Item from '../utils/item'
 
 export default class Home extends Component {
@@ -25,7 +25,7 @@ export default class Home extends Component {
 
       var output = [["PNUT BTTR", "365"], ["CHIPS", "30"], ["SKIM MILK", "10"], ["BANANA", "7"], ["OATRSN COOKIES", "30"]]
 
-      for (let i=0;i<5;i++){
+      for (let i=0;i<output.length;i++){
         this.state.items.push(new Item(output[i][0], output[i][1]))
         this.setState({})
       }
