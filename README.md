@@ -14,7 +14,7 @@ Everyday consumers will know exactly what foods they have purchased, exactly whe
 
 ## How we built it
 
-- React Native, JavaScript, Python,
+- Utilized React Native, JavaScript, Python
 
 1. Open the app, and take a picture of a grocery receipt
 2. The picture is processed using the **Veryfi Receipt OCR API**, which a list of names of the purchased foods
@@ -28,3 +28,4 @@ Everyday consumers will know exactly what foods they have purchased, exactly whe
 - Create support for app usage in multiple languages
 - Store historical patterns from user to output more user specific data and suggestions
 - Use CV to allow users to input food items by taking pictures of the items themselves, instead of the receipt
+- Improve visuals of the app by implementing more advanced stylesheets
