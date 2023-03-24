@@ -21,6 +21,11 @@ Everyday consumers will know exactly what foods they have purchased, exactly whe
 3. Search through the expiry date database for the purchased foods, and match up each food to its corresponding expiry date
 4. Output a visually pleasing list of the user's groceries with its corresponding expiration date in **React Native**
    ​
+   
+## Frontend Design
+This is a mock design of Fresh Check's frontend. Here you can see the implementation of in-app camera, user grocery list, and the user suggested recipes based off of the previous menu's information. Additionally, the design shows how Fresh Check is to send notifcations to users detailing their soon-to-expire groceries.   
+![image](https://user-images.githubusercontent.com/91708448/227632937-d733a1db-f89b-48df-b1a3-badb925d7940.png)
+
 
 ## Next Steps
 
