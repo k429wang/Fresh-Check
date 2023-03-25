@@ -1,8 +1,7 @@
 # import the required libraries
-from xml.dom.minidom import Element
+from xml.dom.minidom
 import pandas as pd
 import csv
-
 
 class myRecipes:
     def __init__(self, name, ingredients, link, recommendation_weight):
@@ -10,7 +9,6 @@ class myRecipes:
         self.ingredients = ingredients
         self.link = link
         self.recommendation_weight = recommendation_weight
-
 
 my_recipe = []
 
@@ -20,7 +18,6 @@ with open("./Recipes-All Recipes.csv", "r", encoding="utf8") as f:
         my_recipe.append(myRecipes(row[1], row[8], row[9], 0))
 
 print(my_recipe.name)
-
 
 # Similarity function
 # go through the whole dictionary and assign values for the amt of words present in the reciept the function then outputs the receipe containing the largest recommendation value
@@ -32,9 +29,7 @@ def recipe_recommendation(users_current_ingredients):
             # print(ingredient)
             if recipe_dict[key] and ingredient in recipe_dict[key]:
                 recipe_dict["recommendation_weight"] += 1
-
             print()
-
 
 # scrapes the csv file to collect data
 df = pd.read_csv("./Recipes-All Recipes.csv")
@@ -48,7 +43,6 @@ for key in recipe_dict:
     if isinstance(recipe_dict[key], str):
         recipe_dict[key] = recipe_dict[key].lower()
 
-
 # parsing user input (from app)
 parsed_user_data = "Eggs Chicken Bacon"  # mock input
 array_of_users_ingredients = parsed_user_data.split()
@@ -58,4 +52,3 @@ array_of_users_ingredients = [element.lower() for element in array_of_users_ingr
 # print(array_of_users_ingredients)
 
 recipe_recommendation(array_of_users_ingredients)
-

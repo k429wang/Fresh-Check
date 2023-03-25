@@ -164,5 +164,3 @@ json_data = json.dumps(exp_dict)
 # Write JSON data to a file
 with open("expiry.json", "w") as json_file:
     json_file.write(json_data)
-
-

@@ -3,12 +3,15 @@ import { FlatList, Text, TextInput, View, Button, Alert} from 'react-native';
 import Item from '../utils/item'
 
 export default class Home extends Component {
+
+  // Define state variables
   state = {
     nameInput: "",
     shelfLifeInput: "",
     items: []
   };
 
+  // Update component information (variables, state, etc.)
   update = () => {
     if (this.state.nameInput && this.state.shelfLifeInput){
       this.state.items.push(new Item(this.state.nameInput, this.state.shelfLifeInput))
@@ -25,13 +28,14 @@ export default class Home extends Component {
 
       var output = [["PNUT BTTR", "365"], ["CHIPS", "30"], ["SKIM MILK", "10"], ["BANANA", "7"], ["OATRSN COOKIES", "30"]]
 
-      for (let i=0;i<output.length;i++){
+      for (let i = 0; i < output.length; i++){
         this.state.items.push(new Item(output[i][0], output[i][1]))
         this.setState({})
       }
     }
   }
 
+  // Determines the current expiration status of the food items
   checkShelfLife = (item) => {
     if (item.shelf_life > 7){
       return "🟢"
@@ -41,7 +45,9 @@ export default class Home extends Component {
     return "🟡"
   }
 
+  // Deletes the item from the list, and updates state
   deletePrompt = (item) => {
+    // Creates an alert pop-up to confirm the deletion
     Alert.alert('Delete this item?', '', [
       {
         text: 'Cancel',
@@ -60,25 +66,43 @@ export default class Home extends Component {
     ]);
   }
 
+  // Renders the component
   render(){
     return (
       <View>
         <Text>Fresh Check </Text>
         <Button title="take picture/add new item" onPress={this.update}></Button>
-        <TextInput style={{
+        <TextInput 
+          style={{
               height: 40,
               borderColor: 'gray',
               borderWidth: 1,
-            }} onChangeText={newText => this.setState({nameInput: newText})} onSubmitEditing={this.update}>{this.state.nameInput}</TextInput>
-        <TextInput style={{
+            }} 
+          onChangeText={newText => this.setState({nameInput: newText})} 
+          onSubmitEditing={this.update}
+          >{this.state.nameInput}
+        </TextInput>
+        <TextInput 
+          style={{
               height: 40,
               borderColor: 'gray',
               borderWidth: 1,
-            }} onChangeText={newText => this.setState({shelfLifeInput: newText})} onSubmitEditing={this.update}>{this.state.shelfLifeInput}</TextInput>
+            }} 
+          onChangeText={newText => this.setState({shelfLifeInput: newText})} 
+          onSubmitEditing={this.update}
+          >{this.state.shelfLifeInput}
+        </TextInput>
         <FlatList data={this.state.items} renderItem={({item}) => 
-        <View>
-          <Text>{this.checkShelfLife(item)} {item.name} {item.shelf_life} days <Text onPress={() => this.deletePrompt(item)}>🗑️</Text></Text>
-        </View> }/>
+          <View>
+            <Text>{this.checkShelfLife(item)} {item.name} {item.shelf_life} days <Text onPress={() => this.deletePrompt(item)}>🗑️</Text></Text>
+          </View> }/>
       </View>
   );}
 }
+
+const styles = StyleSheet.create({
+  fixedRatio:{
+      flex: 1,
+      aspectRatio: 1
+  }
+})

@@ -37,4 +37,5 @@ getDoc().then(
         console.log(error)
     }
 )
+
 return itemarray
