@@ -1,8 +1,5 @@
-import requests
+import requests, re, pprint, json
 from bs4 import BeautifulSoup
-import re
-import pprint
-import json
 
 def cell_contains_date(tag):
   if(re.search(re.compile("(day|month|year)", re.IGNORECASE), tag)):
@@ -120,10 +117,6 @@ links = [
 # Remove duplicates
 links = list(set(links))
 
-# Output all valid links
-# print("Number of items: " + str(len(links)))
-# print(links)
-
 # Create a dictionary of the food item, expiry (and identification of going bad?)
 exp_dict = {}
 
@@ -153,10 +146,6 @@ for link in links:
   exp_dict[curr_name] = curr_expiration
 
 exp_dict.update(cgpt_produce_dict)
-
-## TESTING
-print("num items in dict" + str(len(exp_dict)))
-pprint.pprint(exp_dict)
 
 # Convert dictionary to JSON format
 json_data = json.dumps(exp_dict)

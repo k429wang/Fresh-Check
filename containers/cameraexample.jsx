@@ -23,6 +23,16 @@ export default class App extends Component {
                         ratio={'1:1'} 
                     />
             </View>
+            <Button
+                title="Flip Image"
+                onPress={() => {
+                setType(
+                    type === Camera.Constants.Type.back
+                    ? Camera.Constants.Type.front
+                    : Camera.Constants.Type.back
+                );
+                }}>
+            </Button>
             <Button 
                 title="Take Picture" 
                 onPress={ () => {this.props.navigation.navigate("Home")}} 

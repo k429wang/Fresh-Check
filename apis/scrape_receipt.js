@@ -4,6 +4,8 @@ const Dotenv = require('dotenv-webpack');
 
 require('dotenv').config();
 
+// Make sure you have the required api keys in your env variables
+
 const client_id = process.env.CLIENT_ID;
 const client_secret = process.env.CLIENT_SECRET;
 const username = process.env.USER;

@@ -1,5 +1,3 @@
-# import the required libraries
-from xml.dom.minidom
 import pandas as pd
 import csv
 
@@ -24,12 +22,8 @@ print(my_recipe.name)
 def recipe_recommendation(users_current_ingredients):
     for ingredient in users_current_ingredients:
         for key in recipe_dict.keys():
-            # print(key)
-            # print(recipe_dict[key])
-            # print(ingredient)
             if recipe_dict[key] and ingredient in recipe_dict[key]:
                 recipe_dict["recommendation_weight"] += 1
-            print()
 
 # scrapes the csv file to collect data
 df = pd.read_csv("./Recipes-All Recipes.csv")
